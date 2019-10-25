@@ -1,6 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.views.generic.list import ListView
+
+from . import models
 
 
-def index(req):
-    return HttpResponse("Hello World")
+class Index(ListView):
+    model = models.Article
+    template_name = 'web/index.html'
