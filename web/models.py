@@ -14,3 +14,6 @@ class Article(models.Model):
     bp3 = models.TextField()
     bp4 = models.TextField()
     bp5 = models.TextField()
+
+    def __str__(self):
+        return self.title
