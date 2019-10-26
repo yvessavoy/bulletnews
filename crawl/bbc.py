@@ -45,6 +45,7 @@ class Crawler:
                     article = models.Article(title=title.text,
                                              origin='bbc',
                                              insert_tsd=timezone.now(),
+                                             original_url=url,
                                              bp1=top_sents[0]['sentence'],
                                              bp2=top_sents[1]['sentence'],
                                              bp3=top_sents[2]['sentence'],
