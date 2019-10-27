@@ -15,6 +15,7 @@ class Crawler:
         self.article_link_class = 'gs-c-promo-heading gs-o-faux-block-link__overlay-link gel-pica-bold nw-o-link-split__anchor'
         self.title_tag = 'story-body__h1'
         self.story_tag = 'story-body__inner'
+        self.classes_to_ignore = ['Tweet-text']
 
     def crawl(self):
         r = requests.get(self.article_list_url)
@@ -37,9 +38,10 @@ class Crawler:
                     story_text = ""
                     for p in story.find_all('p'):
                         if len(p.text) > 0:
-                            story_text += p.text
-                            if p.text[-1] == '.':
-                                story_text += ' '
+                            if (p.has_attr('class') and p['class'][0] != 'Tweet-text') or not p.has_attr('class'):
+                                story_text += p.text
+                                if p.text[-1] == '.':
+                                    story_text += ' '
                     top_sents = tfidf(story_text, 5, 'english')
 
                     article = models.Article(title=title.text,
