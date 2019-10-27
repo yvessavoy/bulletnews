@@ -10,6 +10,8 @@ django = "*"
 nltk = "*"
 requests = "*"
 beautifulsoup4 = "*"
+psycopg2-binary = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
