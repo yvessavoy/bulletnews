@@ -5,7 +5,7 @@
 {% for article in object_list %}
 <div class="card mb-3">
 	<div class="card-body">
-		<h5 class="card-title"><a href="{{ article.original_url }}">{{ article.title }}</a></h5>
+		<h5 class="card-title"><a href="{{ article.original_url }}" target="blank_">{{ article.title }}</a></h5>
 		<ul>
 			<li>{{ article.bp1 }}</li>
 			<li>{{ article.bp2 }}</li>
