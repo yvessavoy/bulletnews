@@ -9,11 +9,12 @@ import django
 django.setup()
 
 import bbc
+import nytimes
 
 
 # The only purpose of this script is to
 # invoke all crawlers; It gets executed
 # periodically though cron
 if __name__ == '__main__':
-    c = bbc.Crawler()
+    c = nytimes.NyTimesWorld()
     c.crawl()

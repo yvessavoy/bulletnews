@@ -15,7 +15,9 @@ class Crawler:
         self.article_link_class = 'gs-c-promo-heading gs-o-faux-block-link__overlay-link gel-pica-bold nw-o-link-split__anchor'
         self.title_tag = 'story-body__h1'
         self.story_tag = 'story-body__inner'
-        self.classes_to_ignore = ['Tweet-text']
+        self.classes_to_ignore = [
+            'Tweet-text'
+        ]
 
     def crawl(self):
         r = requests.get(self.article_list_url)
