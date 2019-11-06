@@ -11,4 +11,6 @@ then
     echo "PostgreSQL started"
 fi
 
+python -c "import nltk;nltk.download('punkt');nltk.download('stopwords');"
+
 exec "$@"

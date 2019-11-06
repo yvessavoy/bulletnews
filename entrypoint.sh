@@ -11,5 +11,6 @@ fi
 
 python manage.py flush --no-input
 python manage.py migrate
+python -c "import nltk;nltk.download('punkt');nltk.download('stopwords');"
 
 exec "$@"
