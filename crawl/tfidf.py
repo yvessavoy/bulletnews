@@ -230,4 +230,4 @@ def tfidf(text, amount, lang):
     sent_scores = get_sent_scores(tfidf_scores, text_sents, doc_info)
     top_sents = get_top_sents(sent_scores=sent_scores, top=amount)
 
-    return top_sents
+    return list(map(lambda x: x['sentence'], top_sents))
