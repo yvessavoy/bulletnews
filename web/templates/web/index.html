@@ -4,8 +4,11 @@
 <hr />
 {% for article in object_list %}
 <div class="card mb-3">
+	<div class="card-header">
+		<a href="{{ article.original_url }}" target="blank_">{{ article.title }}</a>
+		<div class="text-secondary float-right">{{ article.get_origin_display }} - {{ article.insert_tsd|date:'d.m.Y' }}</div>
+	</div>
 	<div class="card-body">
-		<h5 class="card-title"><a href="{{ article.original_url }}" target="blank_">{{ article.title }}</a></h5>
 		<ul>
 			<li>{{ article.bp1 }}</li>
 			<li>{{ article.bp2 }}</li>
@@ -13,7 +16,6 @@
 			<li>{{ article.bp4 }}</li>
 			<li>{{ article.bp5 }}</li>
 		</ul>
-		<div class="text-secondary float-right">{{ article.insert_tsd|date:'d.m.Y' }}</div>
 	</div>
 </div>
 {% endfor %}
