@@ -1,7 +1,12 @@
 {% extends 'web/base.html' %}
 
 {% block content %}
-<hr />
+<div class="mb-3">
+	<a class="btn btn-primary" href="{% url 'web:index' %}" role="button">All</a>
+	{% for origin in origins %}
+	<a class="btn btn-primary" href="{% url 'web:news_by_origin' origin=origin.0 %}" role="button">{{ origin.1 }}</a>
+	{% endfor %}
+</div>
 {% for article in object_list %}
 <div class="card mb-3">
 	<div class="card-header">

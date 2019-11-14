@@ -4,6 +4,7 @@ from django.db import models
 class Article(models.Model):
     ORIGINS = [
         ('bbc', 'BBC'),
+        ('nytimes', 'New York Times')
     ]
 
     title = models.CharField(max_length=200)
