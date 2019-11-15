@@ -15,10 +15,8 @@ import nytimes
 # The only purpose of this script is to
 # invoke all crawlers
 if __name__ == '__main__':
-    bbc = bbc.BBC()
-    bbc.crawl()
-    bbc.print_stats()
+    #bbc = bbc.BBC()
+    #bbc.crawl()
 
     ny = nytimes.NyTimes()
     ny.crawl()
-    ny.print_stats()

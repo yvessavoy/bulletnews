@@ -9,7 +9,6 @@ then
 	echo "Postgres started"
 fi
 
-python manage.py flush --no-input
 python manage.py migrate
 python manage.py collectstatic --no-input --clear
 python -c "import nltk;nltk.download('punkt');nltk.download('stopwords');"

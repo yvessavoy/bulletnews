@@ -1,3 +1,5 @@
+import logging
+
 from base import Crawler
 
 
@@ -8,14 +10,14 @@ class NyTimes(Crawler):
             'https://rss.nytimes.com/services/xml/rss/nyt/World.xml'
         ]
         self.story_class = 'css-exrw3m evys1bk0'
-        self.base_url_cnt = len(self.urls)
+        self.logger = self.get_logger(__name__)
 
     def crawl(self):
         for url in self.urls:
             article_rss = self.get_xml_page(url)
+            self.max_articles = len(article_rss[0])
             for item in article_rss[0]:
                 if item.tag == 'item':
-                    self.article_urls += 1
                     title = item[0].text
                     original_url = item[2].text
                     story_text, publish_tsd = self.get_details(self.get_page(original_url))
