@@ -9,6 +9,7 @@ class Article(models.Model):
 
     title = models.CharField(max_length=200)
     insert_tsd = models.DateTimeField('Insert Timestamp')
+    publish_tsd = models.DateTimeField('Published at')
     origin = models.CharField(max_length=50, choices=ORIGINS)
     original_url = models.URLField()
     bp1 = models.TextField()

@@ -16,5 +16,10 @@ import nytimes
 # invoke all crawlers; It gets executed
 # periodically though cron
 if __name__ == '__main__':
-    c = bbc.BBC()
-    c.crawl()
+    bbc = bbc.BBC()
+    bbc.crawl()
+    ny = nytimes.NyTimes()
+    ny.crawl()
+
+    bbc.print_stats()
+    ny.print_stats()

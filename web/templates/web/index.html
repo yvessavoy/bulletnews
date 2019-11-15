@@ -11,7 +11,8 @@
 <div class="card mb-3">
 	<div class="card-header">
 		<a href="{{ article.original_url }}" target="blank_">{{ article.title }}</a>
-		<div class="text-secondary float-right">{{ article.get_origin_display }} - {{ article.insert_tsd|date:'d.m.Y' }}</div>
+		<div class="text-secondary float-right">{{ article.get_origin_display }} - {{ article.insert_tsd|date:'d.m.Y' }}
+		</div>
 	</div>
 	<div class="card-body">
 		<ul>
@@ -24,4 +25,21 @@
 	</div>
 </div>
 {% endfor %}
+{% if is_paginated %}
+<nav class="float-right">
+	<ul class="pagination">
+		<li class="page-item{% if not page_obj.has_previous %} disabled{% endif %}">
+			<a class="page-link" href="{% if page_obj.has_previous %}?page={{ page_obj.previous_page_number }}{% else %}#{% endif %}">Previous</a>
+		</li>
+		{% for i in paginator.page_range %}
+			<li class="page-item{% if page_obj.number == i %} active{% endif %}">
+				<a class="page-link" href="?page={{ i }}">{{ i }}</a>
+			</li>
+		{% endfor %}
+		<li class="page-item{% if not page_obj.has_next %} disabled{% endif %}">
+			<a class="page-link" href="{% if page_obj.has_next %}?page={{ page_obj.next_page_number }}{% else %}#{% endif %}">Next</a>
+		</li>
+	</ul>
+</nav>
+{% endif %}
 {% endblock %}
