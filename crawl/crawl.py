@@ -13,13 +13,12 @@ import nytimes
 
 
 # The only purpose of this script is to
-# invoke all crawlers; It gets executed
-# periodically though cron
+# invoke all crawlers
 if __name__ == '__main__':
     bbc = bbc.BBC()
     bbc.crawl()
+    bbc.print_stats()
+
     ny = nytimes.NyTimes()
     ny.crawl()
-
-    bbc.print_stats()
     ny.print_stats()

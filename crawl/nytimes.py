@@ -8,7 +8,7 @@ class NyTimes(Crawler):
             'https://rss.nytimes.com/services/xml/rss/nyt/World.xml'
         ]
         self.story_class = 'css-exrw3m evys1bk0'
-        self.base_url_cnt = len(urls)
+        self.base_url_cnt = len(self.urls)
 
     def crawl(self):
         for url in self.urls:
